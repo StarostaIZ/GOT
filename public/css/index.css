@@ -1,0 +1,37 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.inside-container{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+.green-round-btn{
+    background-color: #25C770;
+    border-radius: 40px;
+    border: 1px solid black;
+    padding: 20px 20px 20px 20px;
+    font-size: 25px;
+    margin-bottom: 75px;
+    width: 350px;
+
+
+}
+label.required:before {
+    color: red;
+    content: "* ";
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #84FF8C;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #BEFFC2;
+}

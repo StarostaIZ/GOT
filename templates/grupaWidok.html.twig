@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 400px; /* The height is 400 pixels */
+            width: 100%; /* The width is the width of the web page */
+        }
+    </style>
+    <body>
+    <h3 style="color:#0A4A06; justify-content: center; text-align: center">{{ nazwa }}</h3>
+    <div class="container" style="margin-top: 50px">
+        <div id="map" class="col-5"></div>
+        <div class="col-2"></div>
+        <div class="col-5" style="overflow: auto; height: 400px">
+            <table class="table table-striped" >
+                <tbody>
+                {% for punkt in punkty %}
+                    <tr onclick="window.location">
+                        <td>
+                            {{ punkt.nazwaPkt }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <a type="button" href="{{ path('app_default_home') }}" style="justify-content: center; text-align: center; width: 200px; margin-left: 44%; margin-top: 10px" class="btn green-round-btn">Zakończ</a>
+
+
+    <script>
+        function initMap() {
+            var uluru = {lat: 49.1450409, lng: 20.1142779};
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 8, center: uluru});
+            var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqNuDz-qo5qhek8ChljySsJ7iddEBY5kU&callback=initMap">
+    </script>
+    </body>
+
+{% endblock %}

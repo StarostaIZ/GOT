@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h2 style="color:#0A4A06; justify-content: center; text-align: center">Wyszukaj grupę</h2>
+
+    <div class="container" style="display: flex">
+        <div class="row" style="margin-top: 5%; width: 100%">
+            <div class="col-5">
+                <h3 style="color:#0A4A06; margin-bottom: 30%; margin-left: 20%">Wyszukaj po nazwie</h3><br>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" class="btn green-round-btn" style="width: 150px; height: 50px; padding-top: 7px;" value="Wyszukaj">
+                <input type="hidden" id="choiceFromList" name="choiceFromList">
+                {{ form_end(form) }}
+            </div>
+            <div class="col-2" style="display: flex; justify-content: center; align-items: center">
+                <strong style="font-size: x-large;">lub</strong>
+            </div>
+            <div class="col-5">
+                <h3 style="color:#0A4A06; margin-left: 20%">Wybierz z listy</h3><br>
+                <div style="height: 400px; overflow: auto;">
+                <table class="table table-striped" >
+                    <tbody>
+                        {% for grupa in form.grupa.vars.choices %}
+                            <tr onclick="submitFromList({{ grupa.value }})">
+                                <td>
+                            {{ grupa.label }}
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitFromList(id) {
+            document.getElementById("choiceFromList").value = id;
+            document.getElementsByName("szukaj_grupa_gorska")[0].submit();
+        }
+    </script>
+
+{% endblock %}

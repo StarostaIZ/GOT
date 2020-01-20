@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<table>
+    <tr>
+        <td>
+        <img src="{{ asset('Image 1.png') }}" width="80%" height="60%">
+        </td>
+        <td>        <img src="{{ asset('Image 2.png') }}">
+            <img src="{{ asset('Image 3.png') }}">
+            <img src="{{ asset('Image 4.png') }}">
+            <img src="{{ asset('Image 5.png') }}">
+
+            <a type="button" href="{{ path('pokaz_odcinek', {'id': id}) }}" style="justify-content: center; position: absolute; bottom: 10px; right: 100px" class="btn green-round-btn">Wyjdź</a>
+
+        </td>
+
+    </tr>
+</table>
+
+{% endblock %}

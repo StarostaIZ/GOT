@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container" >
+        <div class="inside-container">
+        <a type="button" class="btn green-round-btn" style="margin-top: 8%" href="{{ path('app_odcinektrasy_add') }}" ><strong>Dodaj odcinek</strong></a>
+        <a type="button" class="btn green-round-btn" href="{{ path('app_odcinektrasy_chooseedit') }}"><strong>Edytuj odcinek</strong></a>
+        <a type="button" class="btn green-round-btn" href="{{ path('app_odcinektrasy_choosedelete') }}" ><strong>Usun odcinek</strong></a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="inside-container col-md-4">
+            <a type="button" class="btn green-round-btn" style="margin-top: 25%" href="{{ path('app_odcinektrasy_home') }}" ><strong>Zarządzaj odcinkiem</strong></a>
+            <a type="button" class="btn green-round-btn" href="{{ path('app_punkt_home') }}" ><strong>Zarządzaj punktem</strong></a>
+            <a type="button" class="btn green-round-btn" href="{{ path('app_grupagorska_home') }}" ><strong>Zarządzaj grupą</strong></a>
+        </div>
+    </div>
+
+{% endblock %}

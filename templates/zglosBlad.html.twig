@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container" style="display: block" >
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" class="btn green-round-btn" style="width: 250px" value="Wyślij zgłoszenie">
+        <a href="{{ path('app_default_home') }}" type="button" class="btn green-round-btn" style="width: 250px; margin-left: 53%">Nie wysyłaj</a>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

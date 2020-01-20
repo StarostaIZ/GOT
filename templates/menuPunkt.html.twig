@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container" >
+        <div class="inside-container">
+        <a type="button" class="btn green-round-btn" style="margin-top: 9%" href="{{ path('app_punkt_add') }}" ><strong>Dodaj punkt</strong></a>
+        <a type="button" class="btn green-round-btn" href="{{ path('app_punkt_chooseedit') }}"><strong>Edytuj punkt</strong></a>
+        <a type="button" class="btn green-round-btn" href="{{ path('app_punkt_choosedelete') }}" ><strong>Usun punkt</strong></a>
+        </div>
+    </div>
+{% endblock %}

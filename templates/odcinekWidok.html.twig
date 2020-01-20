@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="col-6" style="border-right: 3px solid black">
+            <h3 style="color:#0A4A06; justify-content: center; text-align: center">Odcinek</h3>
+            <div class="col-4">
+                <p style="text-align: right; width: 350px">{{ odcinek.punktKoncowy.nazwaPkt }}</p>
+                <svg height="220" width="310">
+                    <circle r="10" cx="10" cy="210" fill="black"></circle>
+                    <line x1="10" y1="210" x2="300" y2="10" style="stroke:rgb(0,0,0);stroke-width:2"></line>
+                    <circle r="10" cx="300" cy="10" fill="black"></circle>
+                </svg>
+                {{ odcinek.punktPoczatkowy.nazwaPkt }}
+
+                <div style="background-color: #EBE8E8; width: 350%; border: 1px solid black">
+                    <table >
+                        <tr>
+                            <td width="70%">
+                                Grupa górska:
+                            </td>
+                            <td>
+                                {{ odcinek.punktPoczatkowy.grupaGorska.nazwaGrupy }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Długość:
+                            </td>
+                            <td>
+                                {{ odcinek.dlugosc }}km
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Punkty:
+                            </td>
+                            <td>
+                                {{ odcinek.pktZaPrzejsce }}/{{ odcinek.pktZaPowrot }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Suma przewyższeń:
+                            </td>
+                            <td>
+                                {{ odcinek.sumaSpadkow }}m <img src="{{ asset('arrowD.png') }}" width="15px"
+                                                                height="15px"> {{ odcinek.sumaPrzewyzszen }}m <img
+                                        src="{{ asset('arrowU.png') }}" width="15px" height="15px">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+            <a type="button" href="{{ path('app_odcinektrasy_galeria', {'id': odcinek.id}) }}" style="justify-content: center; text-align: center; width: 200px; margin-left: 25%; margin-top: 10px" class="btn green-round-btn">Galeria</a>
+
+        </div>
+        <div class="col-6">
+            <h3 style="color:#0A4A06; justify-content: center; text-align: center">Punkty sąsiednie</h3>
+            <table style="background-color: #EBE8E8; border: 1px solid black">
+                {% if odcinkiSasiednie %}
+                {% for obok in odcinkiSasiednie %}
+                    <tr>
+                        <td>
+                            Do:
+                        </td>
+                        <td>
+                            {{ obok.punktKoncowy.nazwaPkt }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="70%">
+                            Grupa górska:
+                        </td>
+                        <td>
+                            {{ obok.punktPoczatkowy.grupaGorska.nazwaGrupy }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Długość:
+                        </td>
+                        <td>
+                            {{ obok.dlugosc }}km
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Punkty:
+                        </td>
+                        <td>
+                            {{ obok.pktZaPrzejsce }}/{{ odcinek.pktZaPowrot }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Suma przewyższeń:
+                        </td>
+                        <td>
+                            {{ obok.sumaSpadkow }}m <img src="{{ asset('arrowD.png') }}" width="15px"
+                                                            height="15px"> {{ obok.sumaPrzewyzszen }}m <img
+                                    src="{{ asset('arrowU.png') }}" width="15px" height="15px">
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+
+            <a type="button" href="{{ path('app_default_home') }}" style="position: absolute; bottom: 0; width: 200px; margin-left: 25%; margin-top: 10px" class="btn green-round-btn">Zakończ</a>
+
+        </div>
+    </div>
+
+
+{% endblock %}
