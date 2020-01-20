@@ -170,6 +170,7 @@ class OdcinekTrasyController extends AbstractController
     public function search(Request $request)
     {
 
+        $title = 'Wyszukaj odcinek';
         $odcinek = new OdcinekTrasy();
         $form = $this->createForm(SzukajOdcinekType::class, $odcinek);
         $form->handleRequest($request);
@@ -184,11 +185,11 @@ class OdcinekTrasyController extends AbstractController
                 return $this->redirectToRoute('pokaz_odcinek', ['id' => $odcinek->getId()]);
             }
 
-            return $this->render('szukaj.html.twig', ['form' => $form->createView()]);
+            return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
 
 
         }
-        return $this->render("szukaj.html.twig", ['form' => $form->createView()]);
+        return $this->render("szukaj.html.twig", ['form' => $form->createView(), 'title' => $title]);
     }
 
     public function getPunktyByPunktKoncowy(){
