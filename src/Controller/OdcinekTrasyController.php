@@ -26,6 +26,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Klasa Kontrolera Odcinków Tras odpowiedzialna za poprawne działanie funkcjonalności
+ * dotyczących działań na Odcinkach Tras.
+ * @package App\Controller
+ */
 class OdcinekTrasyController extends AbstractController
 {
 
@@ -33,6 +38,9 @@ class OdcinekTrasyController extends AbstractController
     /**
      * @Route("/zarzadzaj/odcinek")
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za wyświetlanie widoku menu z działaniami dotyczącymi Odcinków Tras
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function home()
     {
@@ -43,6 +51,11 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/zarzadzaj/odcinek/dodaj")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego dodania nowego Odcinka Trasy.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby dodania Odcinka Trasy.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function add(Request $request)
     {
@@ -74,6 +87,12 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/zarzadzaj/ocinek/edytuj")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącego Odcinka Trasy do edycji.
+     * Wyświetla komunikat o niepowodzeniu próby wyboru Odcinka Trasy.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony lub
+     * zwraca żądanie przekierowania do odpowiedniej ścieżki wraz z parametrem 'id'.
      */
     public function chooseEdit(Request $request)
     {
@@ -103,6 +122,13 @@ class OdcinekTrasyController extends AbstractController
      * @param Request $request
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego edytowania istniejącego Odcinka Trasy.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby edycji istniejącego Odcinka Trasy.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Przyjmuje również parametr id, który jest idnetyfikatorem odnalezionej za pomocą
+     * funkcji 'chooseEdit' istniejącego Odcinka Trasy.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function edit(Request $request, $id)
     {
@@ -136,6 +162,13 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/zarzadzaj/odcinek/usun", name="usunOdcinekWybierz")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącego Odcinka Trasy do usunięcia
+     * oraz za usunięcie Odcinka Trasy, jeżeli został znaleziony.
+     * Wyświetla komunikat o niepowodzeniu próby znalezienia istniejącego Odcinka Trasy lub
+     * o poprawnym usunięciu znalezionego Odcinka Trasy.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function chooseDelete(Request $request)
     {
@@ -205,6 +238,12 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/wyszukajOdcinek")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego znalezienia istniejącego Odcinka Trasy.
+     * Wyświetla komunikat o niepowodzeniu próby znalezienia istniejącego Odcinka Trasy
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony lub
+     * zwraca żądanie przekierowania do odpowiedniej ścieżki wraz z parametrem 'id'.
      */
     public function search(Request $request)
     {
@@ -265,6 +304,11 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/odcinek/{id}", name="pokaz_odcinek")
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego pokazania szczegółowego widoku Odcinka Trasy
+     * znalezionego za pomocą funkcji 'search'.
+     * Przyjmuje ona parametr 'id', który jest identyfikatorem Odcinka Trasy znalezionego za pomocą funkcji 'search'.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function showOdcinek($id){
         /** @var OdcinekTrasy $odcinek */
@@ -278,6 +322,11 @@ class OdcinekTrasyController extends AbstractController
      * @Route("/galeria/{id}")
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyświetlenia galerri zdjęć Odcinka Trasy
+     * znalezionego za pomocą funkcji 'search' i wyświetloneg oza pomocą funkcji 'showOdcinek'.
+     * Przyjmuje ona parametr 'id', który jest identyfikatorem Odcinka Trasy znalezionego za pomocą funkcji 'search'.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function galeria($id) {
         return $this->render("galeria.html.twig", ['id' => $id]);

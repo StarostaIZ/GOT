@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Klasa opisująca Przodownika Turystyki Górskiej PTTK, osobę odpowiedzilną za zatwierdzanie odcinków i tras wprowadzonych do systemu
+ * przez Administratora lub Turystę.
  * @ORM\Entity(repositoryClass="App\Repository\PrzodownikTurystykiGorskiejPTTKRepository")
  * @ORM\Table(name="Przodownicy_turystyki_gorskiej_PTTK")
  */
@@ -16,56 +18,79 @@ class PrzodownikTurystykiGorskiejPTTK
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Przodownika Turystyki Górskiej.
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=20, unique=true)
+     *
+     * Unikalny ciąg znaków o długości 20 stanowiący Login Przodownika Turystyki Górskiej.
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=25)
+     *
+     * Hasło logowania dla bieżącego Przodownika Turystyki Górskiej.
      */
     private $haslo;
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
+     *
+     * Uniklany adres mailowy Przodownika Turystyki Górskiej o maksymalnej długości 25 znaków.
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
+     *
+     * Data urodzenia Przodownika Turystyki Górskiej.
      */
     private $data_ur;
 
     /**
      * @ORM\Column(type="string", length=11, unique=true)
+     *
+     * Unikalny ciąg znaków o dlugości 11 stanowiący Numer PESEL Przodownika Turystyki Górskiej.
      */
     private $pesel;
 
     /**
      * @ORM\Column(type="string", length=11, unique=true)
+     *
+     * Unikalny telefon kontaktowy do Przodownika Turystyki Górskiej.
      */
     private $nr_tel;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\OdcinekTrasy", mappedBy="przowodnik_zatwierdzajacy", orphanRemoval=true)
+     *
+     * Pole określające jakie Odcinki Tras zostały zatiwerdzone przez bieżącego  Przodownika Turystyki Górskiej.
      */
     private $zatwierdzone_odcinki_tras;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\GrupaGorska", inversedBy="przodownicy")
+     *
+     * Pole określające Grupy Górskie, co do których Przodownik Turystyki Górskiej
+     * ma uprawnienia w kwestii zatwierdzania Odcinków Tras.
      */
     private $uprawnienia;
 
     /**
      * @ORM\Column(type="string", length=50)
+     *
+     * Ciąg znaków określający imię Przodownika Turystyki Górskiej.
      */
     private $imie;
 
     /**
      * @ORM\Column(type="string", length=70)
+     *
+     * Ciąg znaków określający nazwisko Przodownika Turystyki Górskiej.
      */
     private $nazwisko;
 
@@ -154,6 +179,10 @@ class PrzodownikTurystykiGorskiejPTTK
 
     /**
      * @return Collection|OdcinekTrasy[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Odcinków Tras
+     * zatwierdzonych przez bieżącego Przodownika Turystyki Górskiej.
+     * Zwraca kolekcję Odcinków Tras należących zatwierdzonych przez bieżącego Przodownika Turystyki Górskiej.
      */
     public function getZatwierdzoneOdcinkiTras(): Collection
     {
@@ -185,6 +214,10 @@ class PrzodownikTurystykiGorskiejPTTK
 
     /**
      * @return Collection|GrupaGorska[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Grup Górskich, do których
+     * ma uprawnienia bieżący Przodownik Turystyki Górskiej.
+     * Zwraca kolekcję Grup Górskich, do których ma uprawnienia bieżący Przodownik Turystyki Górskiej.
      */
     public function getUprawnienia(): Collection
     {

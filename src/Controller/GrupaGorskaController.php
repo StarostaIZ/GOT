@@ -20,6 +20,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Klasa Kontrolera Grup Górskich, która odpowiada za poprawne działanie wszystkich
+ * aspektów aplikacji dotyczących Grup Górskich.
+ * @package App\Controller
+ */
 class GrupaGorskaController extends AbstractController
 {
 
@@ -27,6 +32,10 @@ class GrupaGorskaController extends AbstractController
     /**
      * @Route("/zarzadzaj/grupaGorska")
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za wyświetlanie głównego menu z opcjami
+     * dziąłania na Grupach Górskich.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function home()
     {
@@ -37,6 +46,11 @@ class GrupaGorskaController extends AbstractController
      * @Route("/zarzadzaj/grupaGorska/dodaj")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego dodania nowej Grupy Górskiej.
+     * Ponadto wyświetla komunikat o powodzeniu lub niepowodzeniu próby dodania nowej Grupy Górskiej.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function add(Request $request)
     {
@@ -68,6 +82,12 @@ class GrupaGorskaController extends AbstractController
      * @Route("/zarzadzaj/grupaGorska/edytuj")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącej Grupy Górskiej do edycji.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby odnalezienia wybranej Grupy Górskiej.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony lub
+     * zwraca żądanie przekierowania do odpowiedniej ścieżki wraz z parametrem 'id'.
      */
     public function chooseEdit(Request $request)
     {
@@ -96,6 +116,13 @@ class GrupaGorskaController extends AbstractController
      * @param Request $request
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego edytowania istniejącej Grupy Górskiej.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby dodania nowej Grupy Górskiej.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Przyjmuje również parametr 'id', który jest idnetyfikatorem odnalezionej za pomocą
+     * funkcji 'chooseEdit' istniejącej Grupy Górskiej.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function edit(Request $request, $id)
     {
@@ -129,6 +156,13 @@ class GrupaGorskaController extends AbstractController
      * @Route("/zarzadzaj/grupaGorska/usun")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącej Grupy Górskiej do usunięcia
+     * oraz za usunięcie Grupy Górskiej, jeżeli została znaleziona.
+     * Wyświetla komunikat o niepowodzeniu próby znalezienia isntiejącej Grupy Górskiej lub
+     * o poprawnym usunięciu znalezionej Grupy Górskiej.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function chooseDelete(Request $request)
     {
@@ -159,6 +193,11 @@ class GrupaGorskaController extends AbstractController
      * @Route("/wyszukajGrupe")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego znalezienia istniejącej Grupy Górskiej.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony lub
+     * zwraca żądanie przekierowania do odpowiedniej ścieżki wraz z parametrem 'id'.
      */
     public function search(Request $request){
 
@@ -185,6 +224,11 @@ class GrupaGorskaController extends AbstractController
      * @Route("/grupaGorska/{id}", name="pokaz_grupe")
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego pokazania lokalizaji
+     * wybranej z listy Grupy Górskiej na mapie.
+     * Przyjmuje ona parametr 'id', który jest identyfikatorem Grupy Górskiej do wyświetlenia na mapie.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function show($id){
         $em = $this->getDoctrine()->getManager();

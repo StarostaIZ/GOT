@@ -19,6 +19,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Klasa Kontrolera Punktów odpowiadająca za poprawne działanie aspektów aplikacji
+ * dotyczących operacji związanych z Punktami.
+ * @package App\Controller
+ */
 class PunktController extends AbstractController
 {
 
@@ -26,6 +31,9 @@ class PunktController extends AbstractController
     /**
      * @Route("/zarzadzaj/punkt")
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za wyświetlanie widoku menu z działaniami dotyczącymi Punktów.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function home()
     {
@@ -36,6 +44,11 @@ class PunktController extends AbstractController
      * @Route("/zarzadzaj/punkt/dodaj")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego dodania nowego Punktu.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby dodania Punktu.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function add(Request $request)
     {
@@ -67,6 +80,12 @@ class PunktController extends AbstractController
      * @Route("/zarzadzaj/punkt/edytuj")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącego Punktu do edycji.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby wyboru Punktu.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony lub
+     * zwraca żądanie przekierowania do odpowiedniej ścieżki wraz z parametrem 'id' znalezionego Punktu.
      */
     public function chooseEdit(Request $request)
     {
@@ -95,6 +114,13 @@ class PunktController extends AbstractController
      * @param Request $request
      * @param $id
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego edytowania istniejącego Punktu.
+     * Wyświetla komunikat o powodzeniu lub niepowodzeniu próby edycji istniejącego Punktu.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Przyjmuje również parametr 'id', który jest idnetyfikatorem odnalezionego za pomocą
+     * funkcji 'chooseEdit' istniejącego Punktu.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function edit(Request $request, $id)
     {
@@ -128,6 +154,13 @@ class PunktController extends AbstractController
      * @Route("/zarzadzaj/punkt/usun")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego wyboru istniejącego Punktu do usunięcia
+     * oraz za usunięcie Punktu, jeżeli został znaleziony.
+     * Wyświetla komunikat o niepowodzeniu próby znalezienia istniejącego Punktu lub
+     * o poprawnym usunięciu znalezionego Punktu.
+     * Przyjmuje ona parametr 'request', który jest ww. żądaniem i obsługuje je.
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function chooseDelete(Request $request)
     {

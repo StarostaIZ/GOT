@@ -17,11 +17,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Klasa Kontrolera Domyślnego, odpowiedzialna za działanie toolbar'a w górnej części strony.
+ * @package App\Controller
+ */
 class DefaultController extends AbstractController
 {
     /**
      * @Route("/")
      * @return Response
+     *
+     * Funkcja odpowiedzialna za wyświetlanie głównego widoku strony (homepage).
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function home(){
 
@@ -31,6 +38,10 @@ class DefaultController extends AbstractController
     /**
      * @Route("/zarzadzaj")
      * @return Response
+     *
+     * Funkcja odpowiedzialna za wyświetlanie części strony dotyczącej
+     * zarządzania różnymi elementami aplikacji (odcinki, grupy górskie, punkty, etc.).
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function management(){
 
@@ -41,6 +52,12 @@ class DefaultController extends AbstractController
      * @Route("/zglosBlad")
      * @param Request $request
      * @return Response
+     *
+     * Funkcja odpowiedzialna za obsługę żądania dotyczącego zgłaszania błędów,
+     * zauważonych przez użytkowników. Ponadto obsługuje zdarzenia dziejące się w tej częsci strony,
+     * czyli sam proces zgłaszania błędu (wypełnianie odpowiednich rubryk) oraz komunikat o sukcesie lub niepowodzeniu operacji.
+     * Przyjmuje parametr 'request', który jest ww. żądaniem
+     * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
     public function sendError(Request $request){
         $blad = new Blad();

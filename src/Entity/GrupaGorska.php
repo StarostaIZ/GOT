@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Klasa opisująca Grupę Górską - jej dane oraz powiązania z innymi Klasami w aplikacji
+ * (w szczególności z Punktami i Przodownikami Turystyki Górskiej).
  * @ORM\Entity(repositoryClass="App\Repository\GrupaGorskaRepository")
  * @ORM\Table(name="Grupy_gorskie")
  */
@@ -16,31 +18,44 @@ class GrupaGorska
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Grupę Górską.
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50, unique=true)
+     *
+     * Unikalny ciąg znaków stanowiący nazwę Grupy Górskiej
      */
     private $nazwa_grupy;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Punkt", mappedBy="grupa_gorska", orphanRemoval=true)
+     *
+     * Pole okreslajace Punkty zawierające się/wchodzące w skład Grupy Górskiej
      */
     private $punkty;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Trasa", mappedBy="grupa_gorska")
+     *
+     * Pole określające jakie Trasy zawierają się/wchodzą w skład Grupy Górskiej
      */
     private $trasy;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\PrzodownikTurystykiGorskiejPTTK", mappedBy="uprawnienia")
+     *
+     * Pole określające Przodowników Turystyki Górskiej, którzy mają uprawnienia
+     * do zatwierdzania tras w danej Grupie Górskiej
      */
     private $przodownicy;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\OdcinekTrasy", mappedBy="grupa_gorska", orphanRemoval=true)
+     *
+     * Pole określające Odcinki Tras zawierające się w bieżącej Grupie Górskiej
      */
     private $odcinki_tras;
 
@@ -74,6 +89,9 @@ class GrupaGorska
 
     /**
      * @return Collection|Punkt[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Punktów należących do danej Grupy Górskiej.
+     * Zwraca kolekcję Punktów należących do danej Grupy Górskiej.
      */
     public function getPunkty(): Collection
     {
@@ -105,6 +123,9 @@ class GrupaGorska
 
     /**
      * @return Collection|Trasa[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Tras należących do danej Grupy Górskiej.
+     * Zwraca kolekcję Tras należących do danej Grupy Górskiej.
      */
     public function getTrasy(): Collection
     {
@@ -136,6 +157,11 @@ class GrupaGorska
 
     /**
      * @return Collection|PrzodownikTurystykiGorskiejPTTK[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Przodowników Turystyki Górskiej
+     * posiadających uprawnienia do danej Grupy Górskiej.
+     * Zwraca kolekcję Przodowników Turystyki Górskiej
+     * posiadających uprawnienia do danej Grupy Górskiej.
      */
     public function getPrzodownicy(): Collection
     {
@@ -164,6 +190,9 @@ class GrupaGorska
 
     /**
      * @return Collection|OdcinekTrasy[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Odcinków Tras, które zawierają się w bieżącej Grupie Górskiej.
+     * Zwraca kolekcję Odcinków Tras, które zawierają się w bieżącej Grupie Górskiej.
      */
     public function getOdcinkiTras(): Collection
     {

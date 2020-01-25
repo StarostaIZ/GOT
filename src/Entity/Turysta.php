@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TurystaRepository")
  * @ORM\Table(name="Turysci")
+ * Klasa określająca strukturę Turysty - głównego użytkownika Aplikacji
  */
 class Turysta
 {
@@ -16,41 +17,49 @@ class Turysta
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Turystę.
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * Unikalny ciąg znaków o długości 20 stanowiący Login Turysty.
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=25)
+     * Hasło logowania dla bieżącego Turysty.
      */
     private $haslo;
 
     /**
      * @ORM\Column(type="string", length=25)
+     * Uniklany adres mailowy Turysty o maksymalnej długości 25 znaków.
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
+     * Data urodzenia Turysty.
      */
     private $data_ur;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Odznaka", mappedBy="zdobywca", orphanRemoval=true)
+     * Pole odpowiedzialne za przechowywanie informacji o Odznakach danego Turysty
      */
     private $odznaki;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * Ciąg znaków określający imię Turysty.
      */
     private $imie;
 
     /**
      * @ORM\Column(type="string", length=70)
+     * Ciąg znaków określający nazwisko Turysty.
      */
     private $nazwisko;
 
@@ -114,6 +123,8 @@ class Turysta
 
     /**
      * @return Collection|Odznaka[]
+     * Funkcja odpowiedzialna za zwracanie Odznak przypisanych do bieżącego Turysty.
+     * Zwraca kolekcję Odznak, przypisanych do bieżącego Turysty.
      */
     public function getOdznaki(): Collection
     {

@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Klasa opisująca Górską Odznakę Turystyczną, którą może zdobyć Turysta.
  * @ORM\Entity(repositoryClass="App\Repository\OdznakaRepository")
  * @ORM\Table(name="Odznaki")
  */
@@ -16,43 +17,64 @@ class Odznaka
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Odznakę.
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Turysta", inversedBy="odznaki")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * Pole określające Turystę, który zdobywa lub zdobył daną Odznakę.
      */
     private $zdobywca;
 
     /**
      * @ORM\Column(type="integer")
+     *
+     * Wartość typu całkowietego, która określa ilość punktów potzebnych
+     * do zdobycia danej Odznaki przez Turystę.
      */
     private $potrzebna_ilosc_pkt;
 
     /**
      * @ORM\Column(type="integer")
+     *
+     * Wartość typu całkowietego, która określa ilość
+     * punktów aktualnie zodbytych przez Turystę do przyznania Odznaki.
      */
     private $aktualna_ilosc_pkt;
 
     /**
      * @ORM\Column(type="boolean")
+     *
+     * Wartość typu boolowskiego, określająca, czy zdobywca (Turysta)
+     * zdobyło odznakę, czy może jest jeszcze w trakcie jej zdobywania.
      */
     private $czy_zdobyto;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     *
+     * Wartość typu Datowego określająca datę zdobycia i przyznania odznaki,
+     * w przypadku gdy Turysta zdobył wymaganą ilość punktów.
      */
     private $kiedy_zdobyto;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TypOdznaki")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * Pole określające Typ Odznaki.
      */
     private $typ_odznaki;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Trasa", mappedBy="odznaka", orphanRemoval=true)
+     *
+     * Pole określające Trasy, które przebył do tej pory Turysta
+     * w celu zdobycia danej Odznaki.
      */
     private $trasy;
 
@@ -141,6 +163,9 @@ class Odznaka
 
     /**
      * @return Collection|Trasa[]
+     *
+     * Funkjca zwracająca kolekcję tras, które
+     * do tej pory Turysta przebył w celu ukończenia Odznaki.
      */
     public function getTrasy(): Collection
     {

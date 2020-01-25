@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Klasa określająca Punkt, który może być umijescowiony na mapie
+ * oraz na podstawie których można tworzyć Odcinki Trasy z Punktu do Punktu.
  * @ORM\Entity(repositoryClass="App\Repository\PunktRepository")
  * @ORM\Table(name="Punkty")
+
  */
 class Punkt
 {
@@ -16,42 +19,58 @@ class Punkt
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Punkt.
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50, unique=true)
+     *
+     * Unikalny ciąg znaków o długości 50 stanowiący nazwę Punktu.
      */
     private $nazwa_pkt;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\GrupaGorska", inversedBy="punkty")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * Pole określające w jakiej Grupie Górskiej zawiera sie dany Punkt.
      */
     private $grupa_gorska;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca szerokość geograficzną Punktu.
      */
     private $szerokosc_geogr;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca długość geograficzną Punktu.
      */
     private $dlugosc_geogr;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca wysokosc nad poziomem morz Punktu.
      */
     private $wysokosc;
 
     /**
      * @ORM\Column(type="boolean", options={"default": false})
+     *
+     * Wartość typu boolowskiego określająca czy bieżący Punkt został utworzony przez Turystę
      */
     private $czy_zdef_przez_uzytk = false;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\OdcinekTrasy", mappedBy="punkt_poczatkowy", orphanRemoval=true)
+     *
+     * Pole określające, jakie Odcinki Tras wykorzystują bieżący Punkt w swojej strukturze.
      */
     private $odcinki_tras;
 
@@ -139,6 +158,9 @@ class Punkt
 
     /**
      * @return Collection|OdcinekTrasy[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Odcinków Tras, które wykorzystują bieżący Punkt.
+     * Zwraca kolekcję Odcinków Tras, które wykorzystują bieżący Punkt.
      */
     public function getOdcinkiTras(): Collection
     {

@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Klasa określająca strukturę Trasy, składającej się z Odcinków Tras,
+ * którą może przebyć Turysta w celu zdobycia punktów do Odznaki.
  * @ORM\Entity(repositoryClass="App\Repository\TrasaRepository")
  * @ORM\Table(name="Trasy")
  */
@@ -16,47 +18,66 @@ class Trasa
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Trasę.
      */
     private $id;
 
     /**
      * @ORM\Column(type="date")
+     *
+     * Wartość typu DateTime, określająca dokładną datę utworzenia Trasy w systemie.
      */
     private $data_utworzenia;
 
     /**
      * @ORM\Column(type="integer")
+     *
+     * Zmienna typu całkowitego określająca sumę punktów możliwych do zdobycia za przebycie bieżącej Trasy.
      */
     private $suma_pkt;
 
     /**
      * @ORM\Column(type="float")
+     *
+     * Wartość typu zmiennoprzecinkowego, określająca sumę długości Odcinków Tras zawartych w bieżacej Trasie.
      */
     private $dlugosc;
 
     /**
      * @ORM\Column(type="float")
+     *
+     * Wartość typu zmiennoprzecinkowego, określająca maksymalną róznicę wysokości możliwą do pokonanai na bieżacej Trasie.
      */
     private $roznica_wysokosci;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\GrupaGorska", inversedBy="trasy")
+     *
+     * Pole określające do jakiej Grupy Górskiej należy Trasa.
      */
     private $grupa_gorska;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     *
+     * Wartosć typu TimeDate określająca dokładną datę pokonania Trasy przez Turystę.
      */
     private $data_pokonania;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Odznaka", inversedBy="trasy")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * Pole określające Odznakę, do zdobycia której przyczyniło się przebycie
+     * bieżącej Trasy przez Turystę.
      */
     private $odznaka;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\OdcinekTrasy")
+     *
+     * Pole określające Odcinki Tras wchodzące w skład bieżącej Trasy.
      */
     private $odcinki_tworzace_trase;
 
@@ -160,6 +181,9 @@ class Trasa
 
     /**
      * @return Collection|OdcinekTrasy[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Odcinków Tras, które wchodzą w skład bieżącej Trasy.
+     * Zwraca kolekcję Odcinków Tras, które wchodzą w skład bieżącej Trasy.
      */
     public function getOdcinkiTworzaceTrase(): Collection
     {

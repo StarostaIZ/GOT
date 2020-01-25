@@ -19,8 +19,22 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * Klasa odpowiedzialna za zawartość poszczególnych elementów
+ * na ekranie aplikacji dotyczącym Odcinków Tras.
+ * @package App\Type
+ */
 class OdcinekType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     *
+     * Funkcja odpowiedzialna za poprawne zbudowanie zawartości Aplikacji dotyczącej Odcinków Tras na stornie internetowej
+     * poprzez ustawienie etykiet pól i domyślnych wartości.
+     * Przyjmuje paramter 'builder' określający obiekt odpowiedzialny za budowę tej struktury
+     * Przyjmuje paramter 'options' określający dodatkowe opcje, z którymi ma być budowana struktura.
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
