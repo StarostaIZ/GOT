@@ -30,7 +30,8 @@ class PunktType extends AbstractType
                 [
                     'class' => GrupaGorska::class,
                     'label' => 'Grupa górska',
-                    'choice_label' => 'nazwa_grupy'
+                    'choice_label' => 'nazwa_grupy',
+                    'placeholder' => '(Wybierz grupę)'
                 ])
             ->add('wysokosc', IntegerType::class, [
                 'label' => 'Wysokosc',

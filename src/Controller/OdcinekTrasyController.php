@@ -15,6 +15,7 @@ use App\Entity\Punkt;
 use App\Repository\GrupaGorskaRepository;
 use App\Repository\PunktRepository;
 use App\Type\OdcinekType;
+use App\Type\OdcinekTypeDisabled;
 use App\Type\SzukajOdcinekType;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\ORMException;
@@ -87,13 +88,13 @@ class OdcinekTrasyController extends AbstractController
             if (is_null($odcinek)) {
 
                 $form->addError(new FormError('Taki odcinek nie istnieje'));
-                return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
+                return $this->render('szukajOdcinek.html.twig', ['form' => $form->createView(), 'title' => $title]);
             }
             return $this->redirectToRoute('edytujOdcinek', ['id' => $odcinek->getId()]);
 
 
         }
-        return $this->render("szukaj.html.twig", ['form' => $form->createView(), 'title' => $title]);
+        return $this->render("szukajOdcinek.html.twig", ['form' => $form->createView(), 'title' => $title]);
     }
 
 
@@ -132,7 +133,7 @@ class OdcinekTrasyController extends AbstractController
     }
 
     /**
-     * @Route("/zarzadzaj/odcinek/usun")
+     * @Route("/zarzadzaj/odcinek/usun", name="usunOdcinekWybierz")
      * @param Request $request
      * @return Response
      */
@@ -149,17 +150,55 @@ class OdcinekTrasyController extends AbstractController
             if (is_null($odcinek)) {
 
                 $form->addError(new FormError('Taki odcinek nie istnieje'));
+                return $this->render("szukajOdcinek.html.twig", ['form' => $form->createView(), 'title' => $title]);
+
+            } else {
+
+                return $this->redirectToRoute('usunOdcinek', ['id' => $odcinek->getId()]);
+
+            }
+
+
+
+        }
+        return $this->render("szukajOdcinek.html.twig", ['form' => $form->createView(), 'title' => $title]);
+    }
+
+
+    /**
+     * @Route("/zarzadzaj/odcinek/usun/{id}", name="usunOdcinek")
+     * @param Request $request
+     * @param $id
+     * @return Response
+     */
+    public function delete(Request $request, $id)
+    {
+        $title = 'Usun odcinek';
+        $em = $this->getDoctrine()->getManager();
+        /** @var OdcinekTrasy $odcinek */
+        $odcinek = $em->getRepository(OdcinekTrasy::class)->find($id);
+        $form = $this->createForm(OdcinekTypeDisabled::class, $odcinek);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            /** @var OdcinekTrasy|null $odcinek */
+            $odcinek = $em->getRepository(OdcinekTrasy::class)->findOneBy(['punkt_poczatkowy' => $odcinek->getPunktPoczatkowy(), 'punkt_koncowy' => $odcinek->getPunktKoncowy()]);
+            if (is_null($odcinek)) {
+
+                $form->addError(new FormError('Taki odcinek nie istnieje'));
             } else {
                 $em->remove($odcinek);
                 $em->flush();
                 $this->addFlash('success', 'Usuwanie zakonczone powodzeniem');
             }
 
-            return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
-
+            return $this->redirectToRoute('usunOdcinekWybierz');
 
         }
-        return $this->render("szukaj.html.twig", ['form' => $form->createView(), 'title' => $title]);
+
+
+        return $this->render("usun.html.twig", ['form' => $form->createView(), 'title' => $title]);
+
     }
 
     /**
@@ -185,15 +224,41 @@ class OdcinekTrasyController extends AbstractController
                 return $this->redirectToRoute('pokaz_odcinek', ['id' => $odcinek->getId()]);
             }
 
-            return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
+            return $this->render('szukajOdcinek.html.twig', ['form' => $form->createView(), 'title' => $title]);
 
 
         }
-        return $this->render("szukaj.html.twig", ['form' => $form->createView(), 'title' => $title]);
+        return $this->render("szukajOdcinek.html.twig", ['form' => $form->createView(), 'title' => $title]);
     }
 
-    public function getPunktyByPunktKoncowy(){
+    /**
+     * @Route("/admin/getPunktyByKoncowy/{id}")
+     * @param $id
+     * @return JsonResponse
+     */
+    public function getPunktyByPunktKoncowy($id){
+        /** @var OdcinekTrasy[] $odcinki */
+        $odcinki = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->findBy(['punkt_koncowy' => $id]);
+        $punkty = [];
+        foreach ($odcinki as $odcinek){
+            $punkty[] = $odcinek->getPunktPoczatkowy()->getId();
+        }
+        return new JsonResponse($punkty);
+    }
 
+    /**
+     * @Route("/admin/getPunktyByPoczatkowy/{id}")
+     * @param $id
+     * @return JsonResponse
+     */
+    public function getPunktyByPunktPoczatkowy($id){
+        /** @var OdcinekTrasy[] $odcinki */
+        $odcinki = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->findBy(['punkt_poczatkowy' => $id]);
+        $punkty = [];
+        foreach ($odcinki as $odcinek){
+            $punkty[] = $odcinek->getPunktPoczatkowy()->getId();
+        }
+        return new JsonResponse($punkty);
     }
 
     /**

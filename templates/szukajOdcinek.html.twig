@@ -13,8 +13,23 @@
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" class="green-round-btn" value="{{ title }}">
+
         {{ form_end(form) }}
-
     </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+    <script>
+        function getPunktyPoczatkowe() {
+            fetch('/got/public/admin/getPunktyByKoncowy/' + $("#szukaj_odcinek_punkt_koncowy :selected").val())
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                })
+        }
 
+        function deleteOptions(select) {
+            select.removeChild()
+        }
+    </script>
 {% endblock %}

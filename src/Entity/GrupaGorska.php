@@ -20,7 +20,7 @@ class GrupaGorska
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, unique=true)
      */
     private $nazwa_grupy;
 
@@ -39,6 +39,11 @@ class GrupaGorska
      */
     private $przodownicy;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OdcinekTrasy", mappedBy="grupa_gorska", orphanRemoval=true)
+     */
+    private $odcinki_tras;
+
 
 
 
@@ -47,6 +52,7 @@ class GrupaGorska
         $this->punkty = new ArrayCollection();
         $this->trasy = new ArrayCollection();
         $this->przodownicy = new ArrayCollection();
+        $this->odcinki_tras = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,6 +157,37 @@ class GrupaGorska
         if ($this->przodownicy->contains($przodownicy)) {
             $this->przodownicy->removeElement($przodownicy);
             $przodownicy->removeUprawnienium($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OdcinekTrasy[]
+     */
+    public function getOdcinkiTras(): Collection
+    {
+        return $this->odcinki_tras;
+    }
+
+    public function addOdcinkiTra(OdcinekTrasy $odcinkiTra): self
+    {
+        if (!$this->odcinki_tras->contains($odcinkiTra)) {
+            $this->odcinki_tras[] = $odcinkiTra;
+            $odcinkiTra->setGrupaGorska($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOdcinkiTra(OdcinekTrasy $odcinkiTra): self
+    {
+        if ($this->odcinki_tras->contains($odcinkiTra)) {
+            $this->odcinki_tras->removeElement($odcinkiTra);
+            // set the owning side to null (unless already changed)
+            if ($odcinkiTra->getGrupaGorska() === $this) {
+                $odcinkiTra->setGrupaGorska(null);
+            }
         }
 
         return $this;

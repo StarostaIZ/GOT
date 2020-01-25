@@ -72,6 +72,12 @@ class OdcinekTrasy
      */
     private $suma_spadkow;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\GrupaGorska", inversedBy="odcinki_tras")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $grupa_gorska;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -197,5 +203,17 @@ class OdcinekTrasy
                 ->atPath('punkt_poczatkowy')
                 ->addViolation();
         }
+    }
+
+    public function getGrupaGorska(): ?GrupaGorska
+    {
+        return $this->grupa_gorska;
+    }
+
+    public function setGrupaGorska(?GrupaGorska $grupa_gorska): self
+    {
+        $this->grupa_gorska = $grupa_gorska;
+
+        return $this;
     }
 }

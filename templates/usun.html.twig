@@ -10,7 +10,7 @@
                 {{ message }}
             </div>
         {% endfor %}
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'onsubmit' : 'return confirm("Czy na pewno chcesz usunąć odcinek?");'}}) }}
         {{ form_widget(form) }}
         <input type="submit" class="green-round-btn" value="{{ title }}">
         {{ form_end(form) }}

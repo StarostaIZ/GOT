@@ -19,7 +19,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class OdcinekType extends AbstractType
+class OdcinekTypeDisabled extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -27,36 +27,43 @@ class OdcinekType extends AbstractType
             ->add('punkt_poczatkowy', EntityType::class, [
                 'class' => Punkt::class,
                 'choice_label' => 'nazwa_pkt',
-                'placeholder' => '(Wybierz punkt)'
+                'placeholder' => '(Wybierz punkt)',
+                'disabled' => true
             ])
             ->add('punkt_koncowy', EntityType::class, [
                 'class' => Punkt::class,
                 'choice_label' => 'nazwa_pkt',
-                'placeholder' => '(Wybierz punkt)'
+                'placeholder' => '(Wybierz punkt)',
+                'disabled' => true
             ])
             ->add('dlugosc', NumberType::class, [
                 'invalid_message' => 'Wpisz poprawną wartosc',
                 'attr' => ['placeholder' => 'Dlugosc (km)'],
                 'label' => 'Długość',
-                'required' => false
+                'required' => false,
+                'disabled' => true
             ])
             ->add('pkt_za_przejsce', IntegerType::class, [
                 'attr' => ['placeholder' => 'Punkty za przejscie'],
-                'label' => "Punkty za przejście"
+                'label' => "Punkty za przejście",
+                'disabled' => true
             ])
             ->add('pkt_za_powrot', IntegerType::class, [
                 'attr' => ['placeholder' => 'Pkt za powrot'],
                 'label' => 'Punkty za powrót',
-                'required' => false
+                'required' => false,
+                'disabled' => true
             ])
             ->add('suma_przewyzszen', IntegerType::class, [
                 'attr' => ['placeholder' => 'W górę (m)'],
                 'label' => 'Suma przewyższeń',
-                'required' => false
+                'required' => false,
+                'disabled' => true
             ])->add('suma_spadkow', IntegerType::class, [
                 'attr' => ['placeholder' => 'W dół (m)'],
                 'label' => 'Suma spadków',
-                'required' => false
+                'required' => false,
+                'disabled' => true
             ]);
     }
 
