@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/App.html">\App</a></li>
+                                                        <li><a href="../namespaces/DoctrineMigrations.html">\DoctrineMigrations</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">479</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1594723301"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1594723301" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-165866436"></a>
+                                <a href="../namespaces/App.html" style="margin-left: 30px; padding-left: 0">App</a>
+            </div>
+            <div id="namespace-165866436" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1145780543"></a>
+                                <a href="../namespaces/App.Controller.html" style="margin-left: 30px; padding-left: 0">Controller</a>
+            </div>
+            <div id="namespace-1145780543" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Controller.DefaultController.html">DefaultController</a></li>
+                                                    <li class="class"><a href="../classes/App.Controller.GrupaGorskaController.html">GrupaGorskaController</a></li>
+                                                    <li class="class"><a href="../classes/App.Controller.OdcinekTrasyController.html">OdcinekTrasyController</a></li>
+                                                    <li class="class"><a href="../classes/App.Controller.PunktController.html">PunktController</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-415223371"></a>
+                                <a href="../namespaces/App.Entity.html" style="margin-left: 30px; padding-left: 0">Entity</a>
+            </div>
+            <div id="namespace-415223371" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Entity.Administrator.html">Administrator</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.Blad.html">Blad</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.GrupaGorska.html">GrupaGorska</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.OdcinekTrasy.html">OdcinekTrasy</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.Odznaka.html">Odznaka</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.PrzodownikTurystykiGorskiejPTTK.html">PrzodownikTurystykiGorskiejPTTK</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.Punkt.html">Punkt</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.Trasa.html">Trasa</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.Turysta.html">Turysta</a></li>
+                                                    <li class="class"><a href="../classes/App.Entity.TypOdznaki.html">TypOdznaki</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-936952114"></a>
+                                <a href="../namespaces/App.Repository.html" style="margin-left: 30px; padding-left: 0">Repository</a>
+            </div>
+            <div id="namespace-936952114" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Repository.AdministratorRepository.html">AdministratorRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.BladRepository.html">BladRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.GrupaGorskaRepository.html">GrupaGorskaRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.OdcinekTrasyRepository.html">OdcinekTrasyRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.OdznakaRepository.html">OdznakaRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.PrzodownikTurystykiGorskiejPTTKRepository.html">PrzodownikTurystykiGorskiejPTTKRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.PunktRepository.html">PunktRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.TrasaRepository.html">TrasaRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.TurystaRepository.html">TurystaRepository</a></li>
+                                                    <li class="class"><a href="../classes/App.Repository.TypOdznakiRepository.html">TypOdznakiRepository</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1954547276"></a>
+                                <a href="../namespaces/App.Type.html" style="margin-left: 30px; padding-left: 0">Type</a>
+            </div>
+            <div id="namespace-1954547276" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/App.Type.BladType.html">BladType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.GrupaGorskaType.html">GrupaGorskaType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.OdcinekType.html">OdcinekType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.OdcinekTypeDisabled.html">OdcinekTypeDisabled</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.PunktType.html">PunktType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.SzukajGrupaGorskaType.html">SzukajGrupaGorskaType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.SzukajOdcinekType.html">SzukajOdcinekType</a></li>
+                                                    <li class="class"><a href="../classes/App.Type.SzukajPunktType.html">SzukajPunktType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-318241989"></a>
+                                <a href="../namespaces/DoctrineMigrations.html" style="margin-left: 30px; padding-left: 0">DoctrineMigrations</a>
+            </div>
+            <div id="namespace-318241989" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231140442.html">Version20191231140442</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231151020.html">Version20191231151020</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231160053.html">Version20191231160053</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231164157.html">Version20191231164157</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231175749.html">Version20191231175749</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20191231175919.html">Version20191231175919</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103185639.html">Version20200103185639</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103205616.html">Version20200103205616</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103212236.html">Version20200103212236</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103224414.html">Version20200103224414</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103224516.html">Version20200103224516</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200103225231.html">Version20200103225231</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200105221643.html">Version20200105221643</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200105223108.html">Version20200105223108</a></li>
+                                                    <li class="class"><a href="../classes/DoctrineMigrations.Version20200125171846.html">Version20200125171846</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/App.Entity.html">\App\Entity</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\App\Entity</small>OdcinekTrasy</h1>
+                    <p><em>Klasa opisująca Odcinek Trasy oraz zależności między nim i innymi komponentami aplikacji</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getId" class="">getId()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getDlugosc" class="">getDlugosc()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setDlugosc" class="">setDlugosc()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getPktZaPrzejsce" class="">getPktZaPrzejsce()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setPktZaPrzejsce" class="">setPktZaPrzejsce()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getPktZaPowrot" class="">getPktZaPowrot()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setPktZaPowrot" class="">setPktZaPowrot()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getPunktPoczatkowy" class="">getPunktPoczatkowy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setPunktPoczatkowy" class="">setPunktPoczatkowy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getPunktKoncowy" class="">getPunktKoncowy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setPunktKoncowy" class="">setPunktKoncowy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getCzyZatwierdzonePrzezPrzodownika" class="">getCzyZatwierdzonePrzezPrzodownika()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setCzyZatwierdzonePrzezPrzodownika" class="">setCzyZatwierdzonePrzezPrzodownika()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getPrzowodnikZatwierdzajacy" class="">getPrzowodnikZatwierdzajacy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setPrzowodnikZatwierdzajacy" class="">setPrzowodnikZatwierdzajacy()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getSumaprzewyzszen" class="">getSumaprzewyzszen()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setSumaprzewyzszen" class="">setSumaprzewyzszen()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getSumaspadkow" class="">getSumaspadkow()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setSumaspadkow" class="">setSumaspadkow()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_validate" class="">validate()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_getGrupaGorska" class="">getGrupaGorska()</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#method_setGrupaGorska" class="">setGrupaGorska()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_dlugosc" class="">$dlugosc</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_pkt_za_przejsce" class="">$pkt_za_przejsce</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_pkt_za_powrot" class="">$pkt_za_powrot</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_punkt_poczatkowy" class="">$punkt_poczatkowy</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_punkt_koncowy" class="">$punkt_koncowy</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_czy_zatwierdzone_przez_przodownika" class="">$czy_zatwierdzone_przez_przodownika</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_przowodnik_zatwierdzajacy" class="">$przowodnik_zatwierdzajacy</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_suma_przewyzszen" class="">$suma_przewyzszen</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_suma_spadkow" class="">$suma_spadkow</a><br />
+                                                                    <a href="../classes/App.Entity.OdcinekTrasy.html#property_grupa_gorska" class="">$grupa_gorska</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Entity.OdcinekTrasy.html"><div class="path-wrapper">Entity\OdcinekTrasy.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\App\Entity\OdcinekTrasy</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                ORM\Entity
+                            </th>
+                            <td>
+                                                                    <p>(repositoryClass=&quot;App\Repository\OdcinekTrasyRepository&quot;)</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                ORM\Table
+                            </th>
+                            <td>
+                                                                    <p>(name=&quot;Odcinki_tras&quot;, uniqueConstraints={@ORM\UniqueConstraint(columns={&quot;punkt_poczatkowy_id&quot;, &quot;punkt_koncowy_id&quot;})})</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$id</h3>
+                <pre class="signature">$id : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Id
+                        </th>
+                        <td>
+                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\GeneratedValue
+                        </th>
+                        <td>
+                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;integer&quot;)</p>
+<p>Identyfikator typu całkowietego, po którym rozpoznajemy Odcinek Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_dlugosc" name="property_dlugosc" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$dlugosc</h3>
+                <pre class="signature">$dlugosc : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            Assert\Positive
+                        </th>
+                        <td>
+                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;float&quot;, nullable=true)</p>
+<p>Wartość typu zmiennoprzecinkowego, określająca całkowitą długość Odcinka Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pkt_za_przejsce" name="property_pkt_za_przejsce" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$pkt_za_przejsce</h3>
+                <pre class="signature">$pkt_za_przejsce : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            Assert\Positive
+                        </th>
+                        <td>
+                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;integer&quot;)</p>
+<p>Wartość typu całkowitego określająca liczbę punktów przyznawaną
+Turyście za przebycie danego Odcinka Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pkt_za_powrot" name="property_pkt_za_powrot" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$pkt_za_powrot</h3>
+                <pre class="signature">$pkt_za_powrot : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            Assert\PositiveOrZero
+                        </th>
+                        <td>
+                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;integer&quot;)</p>
+<p>Wartość typu całkowitego określająca liczbę punktów przyznawaną
+Turyście za powrtót do punktu początkowego na tym samym Odcinku Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_punkt_poczatkowy" name="property_punkt_poczatkowy" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$punkt_poczatkowy</h3>
+                <pre class="signature">$punkt_poczatkowy : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;App\Entity\Punkt&quot;, inversedBy=&quot;odcinki_tras&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(nullable=false)</p>
+<p>Pole określające Punkt początkowy Odcinka Trasy</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_punkt_koncowy" name="property_punkt_koncowy" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$punkt_koncowy</h3>
+                <pre class="signature">$punkt_koncowy : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;App\Entity\Punkt&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(nullable=false)</p>
+<p>Pole określające Punkt końcowy Odcinka Trasy</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_czy_zatwierdzone_przez_przodownika" name="property_czy_zatwierdzone_przez_przodownika" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$czy_zatwierdzone_przez_przodownika</h3>
+                <pre class="signature">$czy_zatwierdzone_przez_przodownika : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;boolean&quot;, nullable=true)</p>
+<p>Zmienna typu boolowskiego określająca, czy odcinek został zatwierdzony
+w systemie przez uprawnionego Przodownika Turystyki Górskiej.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_przowodnik_zatwierdzajacy" name="property_przowodnik_zatwierdzajacy" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$przowodnik_zatwierdzajacy</h3>
+                <pre class="signature">$przowodnik_zatwierdzajacy : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;App\Entity\PrzodownikTurystykiGorskiejPTTK&quot;, inversedBy=&quot;zatwierdzone_odcinki_tras&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(nullable=true)</p>
+<p>Pole określające konkretnego Przodownika Turystyki Górskiej,
+który odpowiedzialny był za zatwierdzenie danego Odcinka Trasy,
+w przypadku, gdy Odcinek Trasy został zatwierdzony.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_suma_przewyzszen" name="property_suma_przewyzszen" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$suma_przewyzszen</h3>
+                <pre class="signature">$suma_przewyzszen : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;integer&quot;, nullable=true)</p>
+<p>Wartość typu całkowitego określająca sumę wszysktich przewyższeń na danym Odcinku Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_suma_spadkow" name="property_suma_spadkow" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$suma_spadkow</h3>
+                <pre class="signature">$suma_spadkow : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(type=&quot;integer&quot;, nullable=true)</p>
+<p>Wartość typu całkowitego określająca sumę wszysktich spadków na  danym Odcinku Trasy.</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_grupa_gorska" name="property_grupa_gorska" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$grupa_gorska</h3>
+                <pre class="signature">$grupa_gorska : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;App\Entity\GrupaGorska&quot;, inversedBy=&quot;odcinki_tras&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(nullable=true)</p>
+<p>Pole określające w jakiej Grupie Górskiej zawiera się bieżący Odcinek Trasy</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getId" name="method_getId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getId() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDlugosc" name="method_getDlugosc" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDlugosc()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDlugosc() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDlugosc" name="method_setDlugosc" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDlugosc()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDlugosc(\App\Entity\float  <span class="argument">$dlugosc</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\float</td>
+                                <td>$dlugosc </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPktZaPrzejsce" name="method_getPktZaPrzejsce" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPktZaPrzejsce()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPktZaPrzejsce() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPktZaPrzejsce" name="method_setPktZaPrzejsce" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPktZaPrzejsce()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPktZaPrzejsce(\App\Entity\int  <span class="argument">$pkt_za_przejsce</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\int</td>
+                                <td>$pkt_za_przejsce </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPktZaPowrot" name="method_getPktZaPowrot" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPktZaPowrot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPktZaPowrot() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPktZaPowrot" name="method_setPktZaPowrot" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPktZaPowrot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPktZaPowrot(\App\Entity\int  <span class="argument">$pkt_za_powrot</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\int</td>
+                                <td>$pkt_za_powrot </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPunktPoczatkowy" name="method_getPunktPoczatkowy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPunktPoczatkowy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPunktPoczatkowy() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPunktPoczatkowy" name="method_setPunktPoczatkowy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPunktPoczatkowy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPunktPoczatkowy(\App\Entity\Punkt  <span class="argument">$punkt_poczatkowy</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/App.Entity.Punkt.html">\App\Entity\Punkt</a></td>
+                                <td>$punkt_poczatkowy </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPunktKoncowy" name="method_getPunktKoncowy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPunktKoncowy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPunktKoncowy() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPunktKoncowy" name="method_setPunktKoncowy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPunktKoncowy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPunktKoncowy(\App\Entity\Punkt  <span class="argument">$punkt_koncowy</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/App.Entity.Punkt.html">\App\Entity\Punkt</a></td>
+                                <td>$punkt_koncowy </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCzyZatwierdzonePrzezPrzodownika" name="method_getCzyZatwierdzonePrzezPrzodownika" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCzyZatwierdzonePrzezPrzodownika()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCzyZatwierdzonePrzezPrzodownika() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCzyZatwierdzonePrzezPrzodownika" name="method_setCzyZatwierdzonePrzezPrzodownika" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCzyZatwierdzonePrzezPrzodownika()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCzyZatwierdzonePrzezPrzodownika(\App\Entity\bool  <span class="argument">$czy_zatwierdzone_przez_przodownika</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\bool</td>
+                                <td>$czy_zatwierdzone_przez_przodownika </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPrzowodnikZatwierdzajacy" name="method_getPrzowodnikZatwierdzajacy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPrzowodnikZatwierdzajacy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPrzowodnikZatwierdzajacy() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPrzowodnikZatwierdzajacy" name="method_setPrzowodnikZatwierdzajacy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPrzowodnikZatwierdzajacy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPrzowodnikZatwierdzajacy(\App\Entity\PrzodownikTurystykiGorskiejPTTK  <span class="argument">$przowodnik_zatwierdzajacy</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/App.Entity.PrzodownikTurystykiGorskiejPTTK.html">\App\Entity\PrzodownikTurystykiGorskiejPTTK</a></td>
+                                <td>$przowodnik_zatwierdzajacy </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSumaprzewyzszen" name="method_getSumaprzewyzszen" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSumaprzewyzszen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSumaprzewyzszen() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSumaprzewyzszen" name="method_setSumaprzewyzszen" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSumaprzewyzszen()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSumaprzewyzszen(\App\Entity\int  <span class="argument">$suma_przewyzszen</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\int</td>
+                                <td>$suma_przewyzszen </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSumaspadkow" name="method_getSumaspadkow" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSumaspadkow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSumaspadkow() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSumaspadkow" name="method_setSumaspadkow" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSumaspadkow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSumaspadkow(\App\Entity\int  <span class="argument">$suma_spadkow</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\App\Entity\int</td>
+                                <td>$suma_spadkow </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_validate" name="method_validate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">validate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">validate(\Symfony\Component\Validator\Context\ExecutionContextInterface  <span class="argument">$context</span>,   <span class="argument">$payload</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Symfony\Component\Validator\Context\ExecutionContextInterface</td>
+                                <td>$context </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$payload </td>
+                                <td><p>Funkcja odpowiedzialna za zabezpieczenie przed wprowadzeniem
+tego samego Punktu jako punktu początkowego i punktu końcowego.
+Zwraca komunikat o identyczności wprowadzonych Punktów  w przypadku, gdy są takie same.
+Przyjmuje parametr 'payload', który osobiście nie wiem co robi, ale przyjmuje.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            Assert\Callback
+                        </th>
+                        <td>
+                                                                                            <p>()</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getGrupaGorska" name="method_getGrupaGorska" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getGrupaGorska()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getGrupaGorska() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setGrupaGorska" name="method_setGrupaGorska" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setGrupaGorska()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setGrupaGorska(\App\Entity\GrupaGorska  <span class="argument">$grupa_gorska</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/App.Entity.GrupaGorska.html">\App\Entity\GrupaGorska</a></td>
+                                <td>$grupa_gorska </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/xampp/htdocs/GOT/phpDocumentor.phar/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">OdcinekTrasy.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Entity\OdcinekTrasy.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/App.html">\App</a></li>
+                                                                            <li><a href="../namespaces/DoctrineMigrations.html">\DoctrineMigrations</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 26th, 2020 at 19:49.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

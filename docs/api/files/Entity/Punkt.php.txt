@@ -1,0 +1,193 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Klasa określająca Punkt, który może być umijescowiony na mapie
+ * oraz na podstawie których można tworzyć Odcinki Trasy z Punktu do Punktu.
+ * @ORM\Entity(repositoryClass="App\Repository\PunktRepository")
+ * @ORM\Table(name="Punkty")
+
+ */
+class Punkt
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     *
+     * Identyfikator typu całkowietego, po którym rozpoznajemy Punkt.
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=50, unique=true)
+     *
+     * Unikalny ciąg znaków o długości 50 stanowiący nazwę Punktu.
+     */
+    private $nazwa_pkt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\GrupaGorska", inversedBy="punkty")
+     * @ORM\JoinColumn(nullable=false)
+     *
+     * Pole określające w jakiej Grupie Górskiej zawiera sie dany Punkt.
+     */
+    private $grupa_gorska;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca szerokość geograficzną Punktu.
+     */
+    private $szerokosc_geogr;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca długość geograficzną Punktu.
+     */
+    private $dlugosc_geogr;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     *
+     * Wartość zmiennoprzecinkowa określająca wysokosc nad poziomem morz Punktu.
+     */
+    private $wysokosc;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default": false})
+     *
+     * Wartość typu boolowskiego określająca czy bieżący Punkt został utworzony przez Turystę
+     */
+    private $czy_zdef_przez_uzytk = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\OdcinekTrasy", mappedBy="punkt_poczatkowy", orphanRemoval=true)
+     *
+     * Pole określające, jakie Odcinki Tras wykorzystują bieżący Punkt w swojej strukturze.
+     */
+    private $odcinki_tras;
+
+    public function __construct()
+    {
+        $this->odcinki_tras = new ArrayCollection();
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getNazwaPkt(): string
+    {
+        return $this->nazwa_pkt;
+    }
+
+    public function setNazwaPkt(string $nazwa_pkt): self
+    {
+        $this->nazwa_pkt = $nazwa_pkt;
+
+        return $this;
+    }
+
+    public function getGrupaGorska(): GrupaGorska
+    {
+        return $this->grupa_gorska;
+    }
+
+    public function setGrupaGorska(GrupaGorska $grupa_gorska): self
+    {
+        $this->grupa_gorska = $grupa_gorska;
+
+        return $this;
+    }
+
+    public function getSzerokoscGeogr(): float
+    {
+        return $this->szerokosc_geogr;
+    }
+
+    public function setSzerokoscGeogr(float $szerokosc_geogr): self
+    {
+        $this->szerokosc_geogr = $szerokosc_geogr;
+
+        return $this;
+    }
+
+    public function getDlugoscGeogr(): float
+    {
+        return $this->dlugosc_geogr;
+    }
+
+    public function setDlugoscGeogr(float $dlugosc_geogr): self
+    {
+        $this->dlugosc_geogr = $dlugosc_geogr;
+
+        return $this;
+    }
+
+    public function getWysokosc(): float
+    {
+        return $this->wysokosc;
+    }
+
+    public function setWysokosc(float $wysokosc): self
+    {
+        $this->wysokosc = $wysokosc;
+
+        return $this;
+    }
+
+    public function getCzyZdefPrzezUzytk(): bool
+    {
+        return $this->czy_zdef_przez_uzytk;
+    }
+
+    public function setCzyZdefPrzezUzytk(bool $czy_zdef_przez_uzytk): self
+    {
+        $this->czy_zdef_przez_uzytk = $czy_zdef_przez_uzytk;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|OdcinekTrasy[]
+     *
+     * Funkcja odpowiedzialna za zwrócenie Odcinków Tras, które wykorzystują bieżący Punkt.
+     * Zwraca kolekcję Odcinków Tras, które wykorzystują bieżący Punkt.
+     */
+    public function getOdcinkiTras(): Collection
+    {
+        return $this->odcinki_tras;
+    }
+
+    public function addOdcinkiTra(OdcinekTrasy $odcinkiTra): self
+    {
+        if (!$this->odcinki_tras->contains($odcinkiTra)) {
+            $this->odcinki_tras[] = $odcinkiTra;
+            $odcinkiTra->setPunktPoczatkowy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOdcinkiTra(OdcinekTrasy $odcinkiTra): self
+    {
+        if ($this->odcinki_tras->contains($odcinkiTra)) {
+            $this->odcinki_tras->removeElement($odcinkiTra);
+            // set the owning side to null (unless already changed)
+            if ($odcinkiTra->getPunktPoczatkowy() === $this) {
+                $odcinkiTra->setPunktPoczatkowy(null);
+            }
+        }
+
+        return $this;
+    }
+}
+
