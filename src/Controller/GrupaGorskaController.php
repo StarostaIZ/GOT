@@ -100,7 +100,7 @@ class GrupaGorskaController extends AbstractController
             $grupaGorska = $form->getData()['grupa'];
             if (is_null($grupaGorska)) {
 
-                $form->addError(new FormError('Taki grupa nie istnieje'));
+                $form->addError(new FormError('Taka grupa nie istnieje'));
                 return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
             }
             return $this->redirectToRoute('edytujgrupaGorska', ['id' => $grupaGorska->getId()]);

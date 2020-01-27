@@ -12,7 +12,7 @@
         {% endfor %}
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" class="green-round-btn" value="{{ title }}">
+        <input type="submit" class="green-round-btn" value="Znajdź odcinek">
 
         {{ form_end(form) }}
     </div>
@@ -21,15 +21,41 @@
 {{ parent() }}
     <script>
         function getPunktyPoczatkowe() {
+            var poczatkowySelectOptions = document.getElementById("szukaj_odcinek_punkt_poczatkowy").options;
+            for(var i = 0; i<poczatkowySelectOptions.length; i++){
+                poczatkowySelectOptions[i].hidden = true;
+            }
             fetch('/got/public/admin/getPunktyByKoncowy/' + $("#szukaj_odcinek_punkt_koncowy :selected").val())
                 .then(res => res.json())
                 .then(res => {
-                    console.log(res)
+                    for(var i = 0; i<poczatkowySelectOptions.length; i++){
+                        for (var j =0; j<res.length; j++){
+                            if( poczatkowySelectOptions[i].value == res[j]){
+                                poczatkowySelectOptions[i].hidden = false;
+                            }
+                        }
+                    }
+                    poczatkowySelectOptions[0].hidden = false;
                 })
         }
 
-        function deleteOptions(select) {
-            select.removeChild()
+        function getPunktyKoncowe() {
+            var koncowySelectOptions = document.getElementById("szukaj_odcinek_punkt_koncowy").options;
+            for(var i = 0; i<koncowySelectOptions.length; i++){
+                koncowySelectOptions[i].hidden = true;
+            }
+            fetch('/got/public/admin/getPunktyByPoczatkowy/' + $("#szukaj_odcinek_punkt_poczatkowy :selected").val())
+                .then(res => res.json())
+                .then(res => {
+                    for(var i = 0; i<koncowySelectOptions.length; i++){
+                        for (var j =0; j<res.length; j++){
+                            if( koncowySelectOptions[i].value == res[j]){
+                                koncowySelectOptions[i].hidden = false;
+                            }
+                        }
+                    }
+                    koncowySelectOptions[0].hidden = false;
+                })
         }
     </script>
 {% endblock %}

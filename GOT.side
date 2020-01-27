@@ -1,0 +1,723 @@
+{
+  "id": "d3a1c044-9cc3-449c-8930-5e34c950d367",
+  "version": "2.0",
+  "name": "GOT",
+  "url": "http://localhost/got/public",
+  "tests": [{
+    "id": "9b85bc4c-c743-4abd-8951-d114c6df9e9d",
+    "name": "testSzukajOdcinek",
+    "commands": [{
+      "id": "f91ce7f9-6b43-410d-8511-273e54b455c5",
+      "comment": "",
+      "command": "open",
+      "target": "/got/public/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e12670b7-2c3a-46f1-a883-5d0190b7e9d8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52b82592-3210-4076-869d-0d0e508a54b6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1) > strong",
+      "targets": [
+        ["css=.btn:nth-child(1) > strong", "css:finder"],
+        ["xpath=//div/a/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'Wyszukaj odcinek')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f30de6c-1828-438d-b4dc-0b8a03349908",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_koncowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_koncowy", "id"],
+        ["name=szukaj_odcinek[punkt_koncowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_koncowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_koncowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33457980-d318-49eb-a555-4a837353f9ca",
+      "comment": "",
+      "command": "select",
+      "target": "id=szukaj_odcinek_punkt_koncowy",
+      "targets": [],
+      "value": "label=Siklawa (1666 m)"
+    }, {
+      "id": "84d75a55-dad7-487d-b2c3-c55a26ec7db5",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_koncowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_koncowy", "id"],
+        ["name=szukaj_odcinek[punkt_koncowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_koncowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_koncowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c097c2e4-217f-4a21-ad9a-cbd79b6f4407",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_poczatkowy", "id"],
+        ["name=szukaj_odcinek[punkt_poczatkowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a172f233-56d2-4adf-8ec9-44a63fbd80a4",
+      "comment": "",
+      "command": "select",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [],
+      "value": "label=Wodogrzmoty Mickiewicza"
+    }, {
+      "id": "eace87bf-00dd-4867-8c75-797b5001d4d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_poczatkowy", "id"],
+        ["name=szukaj_odcinek[punkt_poczatkowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c68860f8-0f79-4557-8fb5-991c10b19e84",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Znajdź odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c175082-1103-43cb-b72f-7f65e3468c8c",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Znajdź odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f87681e-122a-46fc-8b70-41db4a06f3e4",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_poczatkowy", "id"],
+        ["name=szukaj_odcinek[punkt_poczatkowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f8e1642-d84e-413a-b2be-ae56ca229fc3",
+      "comment": "",
+      "command": "select",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [],
+      "value": "label=tablica S. Bronikowskiego (1772 m)"
+    }, {
+      "id": "7c3000a1-f5f5-443e-a77d-00509e66a991",
+      "comment": "",
+      "command": "click",
+      "target": "id=szukaj_odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=szukaj_odcinek_punkt_poczatkowy", "id"],
+        ["name=szukaj_odcinek[punkt_poczatkowy]", "name"],
+        ["css=#szukaj_odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='szukaj_odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='szukaj_odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2fc1fc87-a014-4128-9215-abb93c1211de",
+      "comment": "",
+      "command": "click",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Znajdź odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ecb6437-72fd-40c8-a439-292645591777",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Znajdź odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b5a63b1-4c35-429d-927f-32ac5ca5bd8e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=p",
+      "targets": [
+        ["css=p", "css:finder"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Siklawa (1666 m)')]", "xpath:innerText"]
+      ],
+      "value": "Siklawa (1666 m)"
+    }, {
+      "id": "20190626-8286-444f-84b6-d9ee46e4eef7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.col-4",
+      "targets": [
+        ["css=.col-4", "css:finder"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": "Siklawa (1666 m)\\ntablica S. Bronikowskiego (1772 m)\\nGrupa górska: Tatry Wysokie\\nDługość: 1.3km\\nPunkty: 1/1\\nSuma przewyższeń: m m"
+    }, {
+      "id": "659327f2-bc70-4957-98ae-a379b86f6d07",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Tatry Wysokie')]", "xpath:innerText"]
+      ],
+      "value": "Tatry Wysokie"
+    }]
+  }, {
+    "id": "5686d816-300e-446d-a947-49b689027211",
+    "name": "testDodajOdcinek",
+    "commands": [{
+      "id": "1b682eba-3895-4817-bf12-12d333c75284",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/got/public/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1a039ae7-13d1-47e3-bcf6-906f17f84b55",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8413bdce-9e02-45ad-acee-8ddedf30838c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-brand:nth-child(5) > strong",
+      "targets": [
+        ["css=.navbar-brand:nth-child(5) > strong", "css:finder"],
+        ["xpath=//a[5]/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'ZARZĄDZAJ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bef1dfb-db3a-4518-8204-1e5462ca51d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1) > strong",
+      "targets": [
+        ["css=.btn:nth-child(1) > strong", "css:finder"],
+        ["xpath=//div/a/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'Zarządzaj odcinkiem')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94444904-4d40-4987-8faf-512bc81da912",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1) > strong",
+      "targets": [
+        ["css=.btn:nth-child(1) > strong", "css:finder"],
+        ["xpath=//div/a/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'Dodaj odcinek')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1433fad7-dbf5-4878-8fe6-659052a6388f",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=odcinek_punkt_poczatkowy", "id"],
+        ["name=odcinek[punkt_poczatkowy]", "name"],
+        ["css=#odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c9467be-52e7-4f80-9279-7a90bdeabb32",
+      "comment": "",
+      "command": "select",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [],
+      "value": "label=Rusinowa Polana (1170 ÷ 1300 m)"
+    }, {
+      "id": "7f711e04-a1d7-4f27-b0fc-1e0526fdb8f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=odcinek_punkt_poczatkowy", "id"],
+        ["name=odcinek[punkt_poczatkowy]", "name"],
+        ["css=#odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e446ed9-00b0-4c42-9c7a-460897aeb5e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_koncowy",
+      "targets": [
+        ["id=odcinek_punkt_koncowy", "id"],
+        ["name=odcinek[punkt_koncowy]", "name"],
+        ["css=#odcinek_punkt_koncowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_koncowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4e5a835-8e85-4b13-acbf-ba39d445c083",
+      "comment": "",
+      "command": "select",
+      "target": "id=odcinek_punkt_koncowy",
+      "targets": [],
+      "value": "label=Rusinowa Polana (1170 ÷ 1300 m)"
+    }, {
+      "id": "e2599a55-6f93-4ce4-b56d-fb232540d6a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_koncowy",
+      "targets": [
+        ["id=odcinek_punkt_koncowy", "id"],
+        ["name=odcinek[punkt_koncowy]", "name"],
+        ["css=#odcinek_punkt_koncowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_koncowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f17dca01-17b1-4d5e-ad5e-db56cddb5a4b",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ac9b344-81b3-446f-9be0-78721b9c3617",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "-10"
+    }, {
+      "id": "575dadcc-9657-4638-9bec-3cbe2b77fc69",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_pkt_za_przejsce",
+      "targets": [
+        ["id=odcinek_pkt_za_przejsce", "id"],
+        ["name=odcinek[pkt_za_przejsce]", "name"],
+        ["css=#odcinek_pkt_za_przejsce", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_przejsce']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3af1f2d2-3cad-49ea-a4a7-c6eea8bb9ad4",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_pkt_za_przejsce",
+      "targets": [
+        ["id=odcinek_pkt_za_przejsce", "id"],
+        ["name=odcinek[pkt_za_przejsce]", "name"],
+        ["css=#odcinek_pkt_za_przejsce", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_przejsce']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "-12"
+    }, {
+      "id": "22473e39-1447-40c4-888a-507cbabd9407",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek",
+      "targets": [
+        ["id=odcinek", "id"],
+        ["css=#odcinek", "css:finder"],
+        ["xpath=//div[@id='odcinek']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d6ef442-6fe2-418c-b4f4-8b87b50f65e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_pkt_za_powrot",
+      "targets": [
+        ["id=odcinek_pkt_za_powrot", "id"],
+        ["name=odcinek[pkt_za_powrot]", "name"],
+        ["css=#odcinek_pkt_za_powrot", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_powrot']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d87521f-2e49-4607-ad94-3b5aee7eab66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Dodaj odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fca1674f-ca8e-40a5-b169-8d1fee12488c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form-group:nth-child(1) .form-error-message",
+      "targets": [
+        ["css=.form-group:nth-child(1) .form-error-message", "css:finder"],
+        ["xpath=//div[@id='odcinek']/div/label/span/span/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"]
+      ],
+      "value": "Punkt początkowy musi różnić się od końcowego"
+    }, {
+      "id": "9284fbe9-af5f-4ce8-ba7b-2befb9529b36",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form-group:nth-child(3) .form-error-message",
+      "targets": [
+        ["css=.form-group:nth-child(3) .form-error-message", "css:finder"],
+        ["xpath=//div[@id='odcinek']/div[3]/label/span/span/span[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/label/span/span/span[2]", "xpath:position"]
+      ],
+      "value": "This value should be positive."
+    }, {
+      "id": "2c8aea0f-95e5-4c54-bad3-d5460a83d996",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.form-group:nth-child(4) .form-error-message",
+      "targets": [
+        ["css=.form-group:nth-child(4) .form-error-message", "css:finder"],
+        ["xpath=//div[@id='odcinek']/div[4]/label/span/span/span[2]", "xpath:idRelative"],
+        ["xpath=//div[4]/label/span/span/span[2]", "xpath:position"]
+      ],
+      "value": "This value should be positive."
+    }, {
+      "id": "85cc2215-0456-46de-a801-bed1e3ea207a",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=odcinek_punkt_poczatkowy", "id"],
+        ["name=odcinek[punkt_poczatkowy]", "name"],
+        ["css=#odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4f3d849-c208-473d-8d71-1ed9fb54586d",
+      "comment": "",
+      "command": "select",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [],
+      "value": "label=Dolina za Mnichem (1785 ÷ 2100 m)"
+    }, {
+      "id": "a7a0b2de-2ced-4049-a091-ad8859bb8400",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_punkt_poczatkowy",
+      "targets": [
+        ["id=odcinek_punkt_poczatkowy", "id"],
+        ["name=odcinek[punkt_poczatkowy]", "name"],
+        ["css=#odcinek_punkt_poczatkowy", "css:finder"],
+        ["xpath=//select[@id='odcinek_punkt_poczatkowy']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a21427a-952f-4dee-972f-afe9f0534ad2",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "98.19999694824219,32.399993896484375"
+    }, {
+      "id": "bbb9a73a-0bed-4591-84ee-d144b5402dca",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "98.19999694824219,32.399993896484375"
+    }, {
+      "id": "08b0c8de-6a37-4241-94e3-657a3b857064",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "98.19999694824219,32.399993896484375"
+    }, {
+      "id": "cdd181c2-bb25-4f1f-9b23-58dccb8347c9",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bfef766-0542-4743-b773-dd38b6d0dbba",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_dlugosc",
+      "targets": [
+        ["id=odcinek_dlugosc", "id"],
+        ["name=odcinek[dlugosc]", "name"],
+        ["css=#odcinek_dlugosc", "css:finder"],
+        ["xpath=//input[@id='odcinek_dlugosc']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "1f4a3855-779e-4ad8-ab6d-8a18c1f61d69",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_pkt_za_przejsce",
+      "targets": [
+        ["id=odcinek_pkt_za_przejsce", "id"],
+        ["name=odcinek[pkt_za_przejsce]", "name"],
+        ["css=#odcinek_pkt_za_przejsce", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_przejsce']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcec2ac0-efbe-47b2-859a-f3311cb67e76",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_pkt_za_przejsce",
+      "targets": [
+        ["id=odcinek_pkt_za_przejsce", "id"],
+        ["name=odcinek[pkt_za_przejsce]", "name"],
+        ["css=#odcinek_pkt_za_przejsce", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_przejsce']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "12"
+    }, {
+      "id": "1bcfc54c-3333-4510-b1f8-d259aed32b91",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_pkt_za_powrot",
+      "targets": [
+        ["id=odcinek_pkt_za_powrot", "id"],
+        ["name=odcinek[pkt_za_powrot]", "name"],
+        ["css=#odcinek_pkt_za_powrot", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_powrot']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "508a8e5c-a739-4bc6-a886-e9965eba8591",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_pkt_za_powrot",
+      "targets": [
+        ["id=odcinek_pkt_za_powrot", "id"],
+        ["name=odcinek[pkt_za_powrot]", "name"],
+        ["css=#odcinek_pkt_za_powrot", "css:finder"],
+        ["xpath=//input[@id='odcinek_pkt_za_powrot']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "1"
+    }, {
+      "id": "291bf375-074f-47a2-9ece-d8372b8512e6",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_suma_przewyzszen",
+      "targets": [
+        ["id=odcinek_suma_przewyzszen", "id"],
+        ["name=odcinek[suma_przewyzszen]", "name"],
+        ["css=#odcinek_suma_przewyzszen", "css:finder"],
+        ["xpath=//input[@id='odcinek_suma_przewyzszen']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb0881a7-42c2-4fa2-87bd-b2ad84e59822",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_suma_przewyzszen",
+      "targets": [
+        ["id=odcinek_suma_przewyzszen", "id"],
+        ["name=odcinek[suma_przewyzszen]", "name"],
+        ["css=#odcinek_suma_przewyzszen", "css:finder"],
+        ["xpath=//input[@id='odcinek_suma_przewyzszen']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "13"
+    }, {
+      "id": "a0b1d3d9-3125-4557-96c2-a8eb2ce54cd6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(7)",
+      "targets": [
+        ["css=.form-group:nth-child(7)", "css:finder"],
+        ["xpath=//div[@id='odcinek']/div[7]", "xpath:idRelative"],
+        ["xpath=//div[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5fcfac1f-e2e2-482d-909e-720b6593939f",
+      "comment": "",
+      "command": "click",
+      "target": "id=odcinek_suma_spadkow",
+      "targets": [
+        ["id=odcinek_suma_spadkow", "id"],
+        ["name=odcinek[suma_spadkow]", "name"],
+        ["css=#odcinek_suma_spadkow", "css:finder"],
+        ["xpath=//input[@id='odcinek_suma_spadkow']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a791b24b-9721-4a79-bdce-07b9226c22fc",
+      "comment": "",
+      "command": "type",
+      "target": "id=odcinek_suma_spadkow",
+      "targets": [
+        ["id=odcinek_suma_spadkow", "id"],
+        ["name=odcinek[suma_spadkow]", "name"],
+        ["css=#odcinek_suma_spadkow", "css:finder"],
+        ["xpath=//input[@id='odcinek_suma_spadkow']", "xpath:attributes"],
+        ["xpath=//div[@id='odcinek']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "9"
+    }, {
+      "id": "1c47209a-a2ec-4faf-9fd3-3f588e9ff7cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.green-round-btn",
+      "targets": [
+        ["css=.green-round-btn", "css:finder"],
+        ["xpath=//input[@value='Dodaj odcinek']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9ba5b6d-0299-4f77-a765-ad838fed4ef7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": "Dodano nowy odcinek"
+    }]
+  }],
+  "suites": [{
+    "id": "4a57ca08-477c-4a0f-8f52-9d47cf351481",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9b85bc4c-c743-4abd-8951-d114c6df9e9d"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

@@ -9,8 +9,10 @@
 namespace App\Controller;
 
 
+use App\Entity\GrupaGorska;
 use App\Entity\Punkt;
 use App\Type\PunktType;
+use App\Type\SzukajGrupaGorskaType;
 use App\Type\SzukajPunktType;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -76,6 +78,31 @@ class PunktController extends AbstractController
     }
 
 
+//    /**
+//     * @Route("/zarzadzaj/punkt/grupa")
+//     * @param Request $request
+//     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+//     */
+//    public function chooseGrupa(Request $request){
+//
+//        $title = 'Wybierz grupę';
+//        $formGrupa = $this->createForm(SzukajGrupaGorskaType::class);
+//        $formGrupa->handleRequest($request);
+//        if($formGrupa->isSubmitted() && $formGrupa->isValid()){
+//            /** @var GrupaGorska|null $grupaGorska */
+//            $grupaGorska = $formGrupa->getData()['grupa'];
+//            if (is_null($grupaGorska)) {
+//
+//                $formGrupa->addError(new FormError('Taka grupa nie istnieje'));
+//                return $this->render('szukaj.html.twig', ['form' => $formGrupa->createView(), 'title' => $title]);
+//            }
+//            $_SESSION['grupa'] = $grupaGorska->getId();
+//            return $this->redirectToRoute('edytujPunktSzukaj');
+//        }
+//
+//        return $this->render("szukaj.html.twig", ['form' => $formGrupa->createView(), 'title' => $title]);
+//    }
+
     /**
      * @Route("/zarzadzaj/punkt/edytuj")
      * @param Request $request
@@ -89,8 +116,9 @@ class PunktController extends AbstractController
      */
     public function chooseEdit(Request $request)
     {
+
         $title = 'Edytuj punkt';
-        $form = $this->createForm(SzukajPunktType::class);
+        $form = $this->createForm(SzukajPunktType::class, null);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -101,6 +129,7 @@ class PunktController extends AbstractController
                 $form->addError(new FormError('Taki punkt nie istnieje'));
                 return $this->render('szukaj.html.twig', ['form' => $form->createView(), 'title' => $title]);
             }
+            unset($_SESSION['grupa']);
             return $this->redirectToRoute('edytujpunkt', ['id' => $punkt->getId()]);
 
 

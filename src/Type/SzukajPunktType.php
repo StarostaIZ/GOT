@@ -10,9 +10,11 @@ namespace App\Type;
 
 
 use App\Entity\Punkt;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Klasa odpowiedzialna za zawartość poszczególnych elementów
@@ -33,13 +35,26 @@ class SzukajPunktType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+//        $grupagorskaId = $options["grupa"];
         $builder
             ->add('punkt', EntityType::class, [
                 'class' => Punkt::class,
                 'choice_label' => 'nazwa_pkt',
-                'placeholder' => '(Wybierz punkt)'
+                'placeholder' => '(Wybierz punkt)',
+//                'query_builder' => function(EntityRepository $er) use ($grupagorskaId){
+//                return $er->createQueryBuilder('p')
+//                    ->andWhere('p.grupa_gorska = :val')
+//                    ->setParameter('val', $grupagorskaId);
+//                }
             ]);
 
     }
+
+//    public function configureOptions(OptionsResolver $resolver)
+//    {
+//        $resolver->setDefaults([
+//            'grupa' => null
+//        ]);
+//    }
 
 }

@@ -36,7 +36,8 @@ class SzukajOdcinekType extends AbstractType
             ->add('punkt_poczatkowy', EntityType::class, [
             'class' => Punkt::class,
             'choice_label' => 'nazwa_pkt',
-                'placeholder' => '(Wybierz punkt)'
+                'placeholder' => '(Wybierz punkt)',
+                'attr' => ['onchange' => 'getPunktyKoncowe()']
             ])
             ->add('punkt_koncowy', EntityType::class, [
                 'class' => Punkt::class,

@@ -9,16 +9,11 @@
 namespace App\Controller;
 
 
-use App\Entity\GrupaGorska;
 use App\Entity\OdcinekTrasy;
-use App\Entity\Punkt;
-use App\Repository\GrupaGorskaRepository;
-use App\Repository\PunktRepository;
 use App\Type\OdcinekType;
 use App\Type\OdcinekTypeDisabled;
 use App\Type\SzukajOdcinekType;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -192,7 +187,6 @@ class OdcinekTrasyController extends AbstractController
             }
 
 
-
         }
         return $this->render("szukajOdcinek.html.twig", ['form' => $form->createView(), 'title' => $title]);
     }
@@ -275,11 +269,12 @@ class OdcinekTrasyController extends AbstractController
      * @param $id
      * @return JsonResponse
      */
-    public function getPunktyByPunktKoncowy($id){
+    public function getPunktyByPunktKoncowy($id)
+    {
         /** @var OdcinekTrasy[] $odcinki */
         $odcinki = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->findBy(['punkt_koncowy' => $id]);
         $punkty = [];
-        foreach ($odcinki as $odcinek){
+        foreach ($odcinki as $odcinek) {
             $punkty[] = $odcinek->getPunktPoczatkowy()->getId();
         }
         return new JsonResponse($punkty);
@@ -290,12 +285,13 @@ class OdcinekTrasyController extends AbstractController
      * @param $id
      * @return JsonResponse
      */
-    public function getPunktyByPunktPoczatkowy($id){
+    public function getPunktyByPunktPoczatkowy($id)
+    {
         /** @var OdcinekTrasy[] $odcinki */
         $odcinki = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->findBy(['punkt_poczatkowy' => $id]);
         $punkty = [];
-        foreach ($odcinki as $odcinek){
-            $punkty[] = $odcinek->getPunktPoczatkowy()->getId();
+        foreach ($odcinki as $odcinek) {
+            $punkty[] = $odcinek->getPunktKoncowy()->getId();
         }
         return new JsonResponse($punkty);
     }
@@ -310,7 +306,8 @@ class OdcinekTrasyController extends AbstractController
      * Przyjmuje ona parametr 'id', który jest identyfikatorem Odcinka Trasy znalezionego za pomocą funkcji 'search'.
      * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
-    public function showOdcinek($id){
+    public function showOdcinek($id)
+    {
         /** @var OdcinekTrasy $odcinek */
         $odcinek = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->find($id);
         $odcinkiSasiednie = $this->getDoctrine()->getManager()->getRepository(OdcinekTrasy::class)->findBy(['punkt_poczatkowy' => $odcinek->getPunktKoncowy()]);
@@ -328,7 +325,8 @@ class OdcinekTrasyController extends AbstractController
      * Przyjmuje ona parametr 'id', który jest identyfikatorem Odcinka Trasy znalezionego za pomocą funkcji 'search'.
      * Zwraca odpowiedź w postaci widoku, który ma być poprawnie wyświetlony.
      */
-    public function galeria($id) {
+    public function galeria($id)
+    {
         return $this->render("galeria.html.twig", ['id' => $id]);
     }
 
